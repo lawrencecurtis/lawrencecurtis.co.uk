@@ -1,0 +1,5 @@
+h1. Lawrence Curtis's Blog
+
+This is the beginnings of my blog!
+
+Put the source up on github while I'm building it as i didn't see the harm in doing so!
