@@ -1,0 +1,82 @@
+<p>
+  Hello, this is my blog
+</p>
+
+<% for post in @published %>
+  <% div_for post do %>
+    <div class="post-main">    
+      <h2><%= link_to h(post.title), post %></h2>
+      <%= textilize post.description %>
+    </div>
+    <div class="post-meta">
+      <%= "Posted, #{time_ago_in_words post.created_at} ago" %><br />
+      <%= pluralize post.comments.length, "comments" %>
+    </div>
+  <% end -%>
+<% end -%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8<-------
+
+<h1>Listing posts</h1>
+
+<h2>Published </h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Published</th>
+  </tr>
+
+<% for post in @published %>
+  <tr>
+    <td><%=h post.title %></td>
+    <td><%=h post.body %></td>
+    <td><%=h post.published %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<h2>Unpublished </h2>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Published</th>
+  </tr>
+
+<% for post in @unpublished %>
+  <tr>
+    <td><%=h post.title %></td>
+    <td><%=h post.body %></td>
+    <td><%=h post.published %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New post', new_post_path %>
