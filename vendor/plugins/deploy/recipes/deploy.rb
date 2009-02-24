@@ -46,6 +46,7 @@ namespace :yellowpad do
     sudo "mkdir -p /srv/vhost.d"
     sudo "cp /tmp/nginx.vhost.conf /srv/vhost.d/#{application}.conf"
     sudo "/etc/init.d/nginx reload" 
+    sudo "chown -R #{user}:#{runner} /srv/#{application}"
   end
   after "deploy:setup", "yellowpad:nginx_vhost"
 
